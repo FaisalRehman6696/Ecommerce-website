@@ -28,5 +28,4 @@ app.use("/",router);
 // app.listen(PORT, () => {
 //   console.log(`Server is running on ${PORT}`);
 // });
-export const handler = serverless(app); // 👈 use named export
-export default handler;
+export default serverless(app); 
