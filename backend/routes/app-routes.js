@@ -23,6 +23,10 @@ import { upload } from "../controller/multer.js";
 
 const router = express.Router();
 
+router.get("/get-active-product", (req, res) => {
+  res.json({ message: "Hello from backend" });
+});
+
 router.post("/admin-login", AdminLogin);
 router.post("/add-category", upload.single("image"), AddCategory);
 router.get("/get-category", GetCategory);
