@@ -15,7 +15,7 @@ const Category = () => {
   const [list, setlist] = useState({});
   const getCategory = async () => {
     try {
-      const res = await axios.get("http://localhost:3000/get-category");
+      const res = await axios.get(`http://localhost:3000/get-category`);
       setlist(res.data);
     } catch (error) {
       console.log(error);
@@ -27,7 +27,7 @@ const Category = () => {
 
   const DeleteCategory = async (_id) => {
     try {
-      const res = await axios.delete (`http://localhost:3000/delete-category/${_id}`);
+      const res = await axios.delete(`http://localhost:3000/delete-category/${_id}`);
       alert(res.data.msg);
      getCategory()
     } catch (error) {

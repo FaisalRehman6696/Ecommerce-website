@@ -39,7 +39,7 @@ const ViewCategory = () => {
   useEffect(() => {
     const fetchCategories = async () => {
       try {
-        const res = await axios.get("http://localhost:3000/get-category"); // Assumes endpoint returns all categories
+        const res = await axios.get(`http://localhost:3000/get-category`); // Assumes endpoint returns all categories
         setCategory(res.data);
         console.log(res.data);
       } catch (err) {

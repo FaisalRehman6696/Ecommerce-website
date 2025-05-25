@@ -37,7 +37,7 @@ const CreateProduct = () => {
 
     try {
       const res = await axios.post(
-        "http://localhost:3000/add-product",
+        `http://localhost:3000/add-product`,
         formData
       );
       alert(res.data.msg);

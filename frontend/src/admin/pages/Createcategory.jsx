@@ -29,10 +29,11 @@ const Createcategory = () => {
       formData.append("description", form.description);
       formData.append("image", form.image);
       const res = await axios.post(
-        "http://localhost:3000/add-category",
-      formData
+        `http://localhost:3000/add-category`,
+        formData
       );
       alert(res.data.msg);
+      window.location.reload();
     } catch (error) {
       console.log(error);
     }

@@ -24,7 +24,7 @@ const Login = () => {
     const logData = { ...value };
     try {
       const res = await axios.post(
-        "http://localhost:3000/admin-login",
+        `http://localhost:3000/admin-login`,
         logData
       );
 

@@ -312,7 +312,7 @@ const Product = () => {
                       Image (preview only)
                     </label>
                     <img
-                      src={`http://localhost:3000/${editData.image}`}
+                      src={`${import.meta.env.VITE_BACKEND_URL}/${editData.image}`}
                       alt="Category"
                       className="h-24 w-24 object-cover rounded-lg border"
                     />

@@ -8,7 +8,7 @@ const NewArrival = ({ card, setCard }) => {
   useEffect(() => {
     const getProduct = async () => {
       try {
-        const res = await axios.get("http://localhost:3000/get-new-product");
+        const res = await axios.get(`http://localhost:3000/get-new-product`);
         setlist(res.data);
         console.log(res.data);
       } catch (error) {

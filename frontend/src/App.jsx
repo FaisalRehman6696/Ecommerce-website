@@ -1,5 +1,10 @@
-import React from "react";
-import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
+import React, { useEffect, useState } from "react";
+import {
+  BrowserRouter as Router,
+  Route,
+  Routes,
+  useLocation,
+} from "react-router-dom";
 
 import Eccommerce from "./front/Eccommerce";
 
@@ -16,16 +21,30 @@ import OrderView from "./admin/pages/OrderView";
 import ViewProduct from "./User/ViewProduct";
 import ViewCategory from "./User/ViewCategory";
 import Login from "./admin/pages/Login";
+import Preloader from "./admin/components/Preloader";
 
-const App = () => {
+const AppWrapper = () => {
+  const location = useLocation();
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    setLoading(true);
+    const timeout = setTimeout(() => setLoading(false), 1000); // simulate delay
+    return () => clearTimeout(timeout);
+  }, [location]);
+  if (loading) {
+    return <Preloader />;
+  }
   return (
-    <Router>
+    <>
+      {loading && <Preloader />}
+
       <Routes>
+        <Route path="/" element={<Eccommerce />} />
         <Route path="/admin-login" element={<Login />} />
 
         <Route path="/admindashboard" element={<AdminDashboard />} />
 
-        <Route path="/" element={<Eccommerce />} />
         <Route path="/products" element={<Products />} />
         <Route path="/navbar" element={<Navbar />} />
         <Route path="/category" element={<Category />} />
@@ -38,7 +57,16 @@ const App = () => {
         <Route path="/view-product/:_id" element={<ViewProduct />} />
         <Route path="/view-category/:_id" element={<ViewCategory />} />
       </Routes>
-    </Router>
+    </>
   );
 };
+function App() {
+  return (
+    <>
+      <Router>
+        <AppWrapper />
+      </Router>
+    </>
+  );
+}
 export default App;

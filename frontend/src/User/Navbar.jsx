@@ -106,7 +106,7 @@ const Navbar = ({ card, setCard }) => {
                           className="flex items-center justify-between bg-gray-100 p-4 rounded-lg shadow"
                         >
                           <img
-                            src={`http://localhost:3000/${image}`}
+                            src={`${import.meta.env.VITE_BACKEND_URL}/${image}`}
                             alt=""
                             className="w-16 h-16 object-cover rounded"
                           />
