@@ -45,7 +45,7 @@ const Navbar = ({ card, setCard }) => {
             style={{ flexGrow: 0.4 }}
           >
             <a href="#home" className="text-orange-300">
-              Home
+              Home  
             </a>
             <a
               href="#categories"

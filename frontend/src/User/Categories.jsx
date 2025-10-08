@@ -1,7 +1,7 @@
 import axios from "axios";
 import React, { useEffect, useState } from "react";
 import { NavLink } from "react-router-dom";
-
+import "../App.css";
 const Categories = () => {
   const [list, setlist] = useState({});
   useEffect(() => {
@@ -19,7 +19,7 @@ const Categories = () => {
   }, []);
   return (
     <>
-      <div className="py-10 px-4 text-center">
+      <div id="#categories" className=" scroll-m-10 py-10 px-4 text-center">
         {/* Heading */}
         <div className="w-16 h-[1px] bg-orange-400 mx-auto "></div>
 

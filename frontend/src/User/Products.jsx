@@ -1,7 +1,7 @@
 import axios from "axios";
 import React, { useEffect, useState } from "react";
 import { NavLink } from "react-router-dom";
-
+import "../App.css";
 const Products = ({ card, setCard }) => {
   const [list, setlist] = useState({});
   useEffect(() => {
@@ -19,7 +19,7 @@ const Products = ({ card, setCard }) => {
   }, []);
   return (
     <>
-      <div className="py-10 px-4  text-center">
+      <div id="products" className="py-10 px-4  text-center scroll-mt-24 ">
         <div className="w-16 h-[1px] bg-orange-400 mx-auto mt-2 mb-2"></div>
         <h2 className="text-2xl font-semibold tracking-widest text-gray-800 mb-6   mx-auto">
           PRODUCTS
