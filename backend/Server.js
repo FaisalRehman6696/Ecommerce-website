@@ -15,9 +15,8 @@ Database();
 
 app.use(
   cors({
-    origin: ["https://ecommerce-website-omega-eight.vercel.app","http://localhost:5173" ],
+    origin: "*",
     methods: ["GET", "POST", "PUT", "DELETE"],
-    credentials: true,
   })
 );
 
