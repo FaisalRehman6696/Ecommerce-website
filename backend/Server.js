@@ -14,10 +14,7 @@ const PORT = process.env.PORT;
 Database();
 
 app.use(
-  cors({
-    origin: "*",
-    methods: ["GET", "POST", "PUT", "DELETE"],
-  })
+  cors()
 );
 
 const __filename = fileURLToPath(import.meta.url);
