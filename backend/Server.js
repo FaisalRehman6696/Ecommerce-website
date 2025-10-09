@@ -8,7 +8,6 @@ import { fileURLToPath } from "url";
 import path from "path";
 const PORT = process.env.PORT || 3000;
 // import serverless from "serverless-http";
-
 const app = express();
 
 Database();
@@ -17,7 +16,7 @@ app.use(
   cors({
     origin: ["https://ecommerce-website-omega-eight.vercel.app"],
     methods: ["GET", "POST", "PUT", "DELETE"],
-    credentials: true,
+    
   })
 );
 
