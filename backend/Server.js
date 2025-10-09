@@ -13,13 +13,7 @@ app.use(express.json());
 const PORT = process.env.PORT;
 Database();
 
-app.use(
-  cors({
-    origin: ["https://ecommerce-website-omega-eight.vercel.app"],
-    methods: ["GET", "POST", "PUT", "DELETE"],
-    credentials: true,
-  })
-);
+
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
