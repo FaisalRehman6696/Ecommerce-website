@@ -6,14 +6,20 @@ import cors from "cors";
 import Database from "./config/db.js";
 import { fileURLToPath } from "url";
 import path from "path";
+const PORT = process.env.PORT;
 // import serverless from "serverless-http";
 
 const app = express();
-app.use(express.json());
-const PORT = process.env.PORT;
+
 Database();
-
-
+app.use(express.json());
+app.use(
+  cors({
+    origin: ["https://ecommerce-website-omega-eight.vercel.app"],
+    methods: ["GET", "POST", "PUT", "DELETE"],
+    credentials: true,
+  })
+);
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
