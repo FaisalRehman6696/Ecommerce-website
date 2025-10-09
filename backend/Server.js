@@ -12,7 +12,7 @@ const app = express();
 
 Database();
 
-app.use(cors({ origin: "*" }));
+app.use(cors());
 app.use(express.json());
 
 const __filename = fileURLToPath(import.meta.url);
