@@ -6,7 +6,7 @@ import cors from "cors";
 import Database from "./config/db.js";
 import { fileURLToPath } from "url";
 import path from "path";
-const PORT = process.env.PORT;
+const PORT = process.env.PORT || 3000;
 // import serverless from "serverless-http";
 
 const app = express();
