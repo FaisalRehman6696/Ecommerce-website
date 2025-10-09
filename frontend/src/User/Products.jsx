@@ -7,7 +7,7 @@ const Products = ({ card, setCard }) => {
   useEffect(() => {
     const getProduct = async () => {
       try {
-        const res = await axios.get(`https://ecommerce-website-3-ewl0.onrender.com/get-active-product`);
+        const res = await axios.get(`https://ecommerce-website-5-195j.onrender.com/get-active-product`);
         setlist(res.data);
         console.log(res.data);
       } catch (error) {

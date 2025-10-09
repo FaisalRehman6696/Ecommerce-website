@@ -6,8 +6,8 @@ const Categories = () => {
   const [list, setlist] = useState({});
   useEffect(() => {
     const getProduct = async () => {
-      try {
-        const res = await axios.get(`https://ecommerce-website-3-ewl0.onrender.com/get-category`);
+      try {                          
+        const res = await axios.get(`https://ecommerce-website-5-195j.onrender.com/get-category`);
         setlist(res.data);
         console.log(res.data);
       } catch (error) {
