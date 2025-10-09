@@ -12,7 +12,7 @@ const app = express();
 
 Database();
 
-app.use(cors());
+app.use(cors({ origin: "https://ecommerce-website-teal-theta.vercel.app" }));
 app.use(express.json());
 
 const __filename = fileURLToPath(import.meta.url);
