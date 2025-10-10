@@ -14,7 +14,7 @@ Database();
 
 app.use(
   cors({
-    origin: "http://localhost:3000",
+    origin: "https://ecommerce-website-teal-theta.vercel.app",
   })
 );
 app.use(express.json());
