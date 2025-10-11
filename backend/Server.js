@@ -28,9 +28,44 @@ const __dirname = path.dirname(__filename);
 app.use("/uploads", express.static(path.join(__dirname, "uploads")));
 
 
+app.get("/test-cors", (req, res) => {
+  res.json({ message: "CORS is working!" });
+});
 
 app.use(router);
 app.listen(PORT, () => {
   console.log(`Server is running on ${PORT}`);
 });
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
