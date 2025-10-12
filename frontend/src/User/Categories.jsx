@@ -7,9 +7,9 @@ const Categories = () => {
   useEffect(() => {
     const getProduct = async () => {
       try {                          
-        const res = await axios.get(`https://ecommerce-website-5-195j.onrender.com/get-category`);
+        const res = await axios.get(`https://ecommerce-website-3-tg4v.onrender.com/get-category`);
         setlist(res.data);
-        console.log(res.data);
+        // console.log(res.data);
       } catch (error) {
         console.log(error);
       }

@@ -12,7 +12,9 @@ const Product = () => {
   useEffect(() => {
     const getProduct = async () => {
       try {
-        const res = await axios.get("https://ecommerce-website-3-ewl0.onrender.com/get-product");
+        const res = await axios.get(
+          "https://ecommerce-website-3-tg4v.onrender.com/get-product"
+        );
         setlist(res.data);
         console.log(res.data);
       } catch (error) {
@@ -312,7 +314,9 @@ const Product = () => {
                       Image (preview only)
                     </label>
                     <img
-                      src={`${import.meta.env.VITE_BACKEND_URL}/${editData.image}`}
+                      src={`${import.meta.env.VITE_BACKEND_URL}/${
+                        editData.image
+                      }`}
                       alt="Category"
                       className="h-24 w-24 object-cover rounded-lg border"
                     />

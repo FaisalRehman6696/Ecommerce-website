@@ -8,17 +8,18 @@ const Products = ({ card, setCard }) => {
     const getProduct = async () => {
       try {
         const res = await axios.get(
-          "https://ecommerce-website-5-195j.onrender.com/get-active-product"
+          "https://ecommerce-website-3-tg4v.onrender.com/get-active-product"
         );
         setlist(res.data);
         console.log(res.data);
       } catch (error) {
-        console.log(error);
+        console.log(error.message);
       }
     };
 
     getProduct();
   }, []);
+
   return (
     <>
       <div id="products" className="py-10 px-4  text-center scroll-mt-24 ">

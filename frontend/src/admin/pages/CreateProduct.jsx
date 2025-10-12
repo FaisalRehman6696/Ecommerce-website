@@ -37,7 +37,7 @@ const CreateProduct = () => {
 
     try {
       const res = await axios.post(
-        `https://ecommerce-website-3-ewl0.onrender.com/add-product`,
+        `https://ecommerce-website-3-tg4v.onrender.com/add-product`,
         formData
       );
       alert(res.data.msg);

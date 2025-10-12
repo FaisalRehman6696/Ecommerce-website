@@ -16,7 +16,7 @@ const Order = () => {
   const [list, setlist] = useState({});
   const getCategory = async () => {
     try {
-      const res = await axios.get(`https://ecommerce-website-3-ewl0.onrender.com/get-order`);
+      const res = await axios.get(`https://ecommerce-website-3-tg4v.onrender.com/get-order`);
       setlist(res.data);
     } catch (error) {
       console.log(error);

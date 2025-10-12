@@ -15,7 +15,7 @@ const Category = () => {
   const [list, setlist] = useState({});
   const getCategory = async () => {
     try {
-      const res = await axios.get(`https://ecommerce-website-3-ewl0.onrender.com/get-category`);
+      const res = await axios.get(`https://ecommerce-website-3-tg4v.onrender.com/get-category`);
       setlist(res.data);
     } catch (error) {
       console.log(error);

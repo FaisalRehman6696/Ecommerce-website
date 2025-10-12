@@ -8,9 +8,9 @@ const NewArrival = ({ card, setCard }) => {
   useEffect(() => {
     const getProduct = async () => {
       try {
-        const res = await axios.get(`https://ecommerce-website-5-195j.onrender.com/get-new-product`);
+        const res = await axios.get(`https://ecommerce-website-3-tg4v.onrender.com/get-new-product`);
         setlist(res.data);
-        console.log(res.data);
+        // console.log(res.data);
       } catch (error) {
         console.log(error);
       }

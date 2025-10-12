@@ -25,7 +25,7 @@ const ViewCategory = () => {
     const handleCategoryChange = async () => {
       try {
         const res = await axios.get(
-          `https://ecommerce-website-5-195j.onrender.com/get-category-by/${selectedId}`
+          `https://ecommerce-website-3-tg4v.onrender.com/get-category-by/${selectedId}`
         );
 
         setlist(res.data);

@@ -13,7 +13,7 @@ const OrderView = () => {
   const [list, setlist] = useState({});
   const getCategory = async () => {
     try {
-      const res = await axios.get(`https://ecommerce-website-3-ewl0.onrender.com/get-order/${_id}`);
+      const res = await axios.get(`https://ecommerce-website-3-tg4v.onrender.com/get-order/${_id}`);
       setlist(res.data);
       console.log(res.data);
     } catch (error) {
