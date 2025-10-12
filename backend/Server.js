@@ -9,7 +9,7 @@ import path from "path";
 const PORT = process.env.PORT;
 const app = express();
 Database();
-app.use(cors({ origin: "*" }));
+app.use(cors({ origin: ["https://ecommerce-website-blond-beta.vercel.app"] }));
 
 app.use(express.json());
 
