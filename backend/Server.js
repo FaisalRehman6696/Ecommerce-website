@@ -12,7 +12,7 @@ Database();
 app.use(
   cors({
     origin: [
-      "https://ecommerce-website-3-tg4v.onrender.com/get-active-product",
+      "https://ecommerce-website-blond-beta.vercel.app",
     ],
   })
 );
@@ -22,6 +22,7 @@ app.use(express.json());
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 app.use("/uploads", express.static(path.join(__dirname, "uploads")));
+
 app.post("/test", (req, res) => {
   res.json({ msg: "chlado ab" });
 });
