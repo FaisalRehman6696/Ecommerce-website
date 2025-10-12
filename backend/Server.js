@@ -11,11 +11,38 @@ const app = express();
 Database();
 app.use(
   cors({
-    origin: [
-      "https://ecommerce-website-blond-beta.vercel.app",
-    ],
+    origin: ["https://ecommerce-website-blond-beta.vercel.app"],
   })
 );
+app.use((req, res, next) => {
+  // ✅ Allow your frontend origin
+  res.header(
+    "Access-Control-Allow-Origin",
+    "https://ecommerce-website-blond-beta.vercel.app"
+  );
+
+  // ✅ Allow credentials if you use cookies/JWT
+  res.header("Access-Control-Allow-Credentials", "true");
+
+  // ✅ Allow required headers
+  res.header(
+    "Access-Control-Allow-Headers",
+    "Origin, X-Requested-With, Content-Type, Accept, Authorization"
+  );
+
+  // ✅ Allow HTTP methods
+  res.header(
+    "Access-Control-Allow-Methods",
+    "GET, POST, PUT, PATCH, DELETE, OPTIONS"
+  );
+
+  // ✅ Handle preflight (OPTIONS) requests
+  if (req.method === "OPTIONS") {
+    return res.sendStatus(200);
+  }
+
+  next();
+});
 
 app.use(express.json());
 
