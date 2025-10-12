@@ -9,8 +9,8 @@ import path from "path";
 const PORT = process.env.PORT;
 const app = express();
 Database();
-app.use(cors({ origin: ["https://ecommerce-website-blond-beta.vercel.app"] }));
-
+app.use(cors());
+// https://ecommerce-website-3-tg4v.onrender.com/get-active-product
 app.use(express.json());
 
 const __filename = fileURLToPath(import.meta.url);
