@@ -11,7 +11,10 @@ const app = express();
 Database();
 app.use(
   cors({
-    origin: "http://localhost:5173",
+    origin: [
+      "http://localhost:5173", // for local testing
+      "https://ecommerce-website-two-zeta.vercel.app", // your live frontend
+    ],
     credentials: true,
   })
 );
