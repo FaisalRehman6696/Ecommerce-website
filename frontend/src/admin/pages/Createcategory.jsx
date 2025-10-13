@@ -29,7 +29,7 @@ const Createcategory = () => {
       formData.append("description", form.description);
       formData.append("image", form.image);
       const res = await axios.post(
-        `https://ecommerce-website-3-tg4v.onrender.com/add-category`,
+        `http://localhost:3000/add-category`,
         formData
       );
       alert(res.data.msg);

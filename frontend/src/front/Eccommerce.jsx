@@ -16,7 +16,7 @@ const Eccommerce = () => {
     }
   }, []);
 
-  // Save to sessionStorage whenever the card changes
+ 
   useEffect(() => {
     sessionStorage.setItem("card", JSON.stringify(card));
   }, [card]);

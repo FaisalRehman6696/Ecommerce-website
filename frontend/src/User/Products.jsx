@@ -7,9 +7,7 @@ const Products = ({ card, setCard }) => {
   useEffect(() => {
     const getProduct = async () => {
       try {
-        const res = await axios.get(
-          "https://ecommerce-website-3-tg4v.onrender.com/get-active-product"
-        );
+        const res = await axios.get("http://localhost:3000/get-active-product");
         setlist(res.data);
         console.log(res.data);
       } catch (error) {
@@ -79,11 +77,7 @@ const Products = ({ card, setCard }) => {
             );
           })
         ) : (
-          <tr>
-            <p colSpan="8" className="text-center py-4">
-              No data found
-            </p>
-          </tr>
+          null
         )}
       </div>
       <section class="container max-w-5xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-12 px-4 sm:px-8 lg:px-20 py-16 mt-20">

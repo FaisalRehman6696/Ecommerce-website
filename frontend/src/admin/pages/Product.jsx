@@ -13,7 +13,7 @@ const Product = () => {
     const getProduct = async () => {
       try {
         const res = await axios.get(
-          "https://ecommerce-website-3-tg4v.onrender.com/get-product"
+          "http://localhost:3000/get-product"
         );
         setlist(res.data);
         console.log(res.data);
