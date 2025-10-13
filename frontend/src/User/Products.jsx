@@ -7,7 +7,9 @@ const Products = ({ card, setCard }) => {
   useEffect(() => {
     const getProduct = async () => {
       try {
-        const res = await axios.get("https://ecommerce-website-2nkk.onrender.com/get-active-product");
+        const res = await axios.get(
+          "https://ecommerce-website-2nkk.onrender.com/api/get-active-product"
+        );
         setlist(res.data);
         console.log(res.data);
       } catch (error) {
@@ -28,57 +30,55 @@ const Products = ({ card, setCard }) => {
       </div>
 
       <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 mx-auto max-w-5xl py-6 ">
-        {Array.isArray(list) && list.length > 0 ? (
-          list.map((rs) => {
-            const { _id, image, name, description, price } = rs;
-            return (
-              <div
-                key={_id}
-                class="bg-white shadow-[0_0_15px_rgba(0,0,0,0.2)] rounded-2xl p-4 transform transition-transform hover:scale-105 hover:translate-y-0 duration-300  hover:ease-in-out"
-              >
-                <NavLink to={`/view-product/${_id}`} state={{ card, rs }}>
-                  <img
-                    src={`http://localhost:3000/${image}`}
-                    alt="TAG Heuer"
-                    class="rounded-2xl w-full px-1  object-cover mt-1 transform transition-transform hover:scale-105 hover:translate-y-0 duration-300  ease-in-out"
-                    style={{ height: "360px" }}
-                  />
-                </NavLink>
-                <div class="mt-4">
-                  <h3 class="font-bold text-lg text-gray-800 flex items-center gap-1">
-                    {name}
-                  </h3>
-                  {description}
-                  <p class="text-gray-600 my-2">PKR{price}</p>
-                  <button
-                    class="mt-4 w-full bg-orange-300 hover:bg-orange-400 text-black font-semibold py-2 rounded-lg flex items-center justify-center gap-2"
-                    onClick={() =>
-                      setCard((prevCard) => {
-                        const newItem = {
-                          _id,
-                          image,
-                          name,
-                          price,
-                          quantity: 1,
-                        };
-                        const updatedCart = [...prevCard, newItem];
-                        sessionStorage.setItem(
-                          "card",
-                          JSON.stringify(updatedCart)
-                        );
-                        return updatedCart;
-                      })
-                    }
-                  >
-                    🛒 Add to Cart
-                  </button>
+        {Array.isArray(list) && list.length > 0
+          ? list.map((rs) => {
+              const { _id, image, name, description, price } = rs;
+              return (
+                <div
+                  key={_id}
+                  class="bg-white shadow-[0_0_15px_rgba(0,0,0,0.2)] rounded-2xl p-4 transform transition-transform hover:scale-105 hover:translate-y-0 duration-300  hover:ease-in-out"
+                >
+                  <NavLink to={`/view-product/${_id}`} state={{ card, rs }}>
+                    <img
+                      src={`http://localhost:3000/${image}`}
+                      alt="TAG Heuer"
+                      class="rounded-2xl w-full px-1  object-cover mt-1 transform transition-transform hover:scale-105 hover:translate-y-0 duration-300  ease-in-out"
+                      style={{ height: "360px" }}
+                    />
+                  </NavLink>
+                  <div class="mt-4">
+                    <h3 class="font-bold text-lg text-gray-800 flex items-center gap-1">
+                      {name}
+                    </h3>
+                    {description}
+                    <p class="text-gray-600 my-2">PKR{price}</p>
+                    <button
+                      class="mt-4 w-full bg-orange-300 hover:bg-orange-400 text-black font-semibold py-2 rounded-lg flex items-center justify-center gap-2"
+                      onClick={() =>
+                        setCard((prevCard) => {
+                          const newItem = {
+                            _id,
+                            image,
+                            name,
+                            price,
+                            quantity: 1,
+                          };
+                          const updatedCart = [...prevCard, newItem];
+                          sessionStorage.setItem(
+                            "card",
+                            JSON.stringify(updatedCart)
+                          );
+                          return updatedCart;
+                        })
+                      }
+                    >
+                      🛒 Add to Cart
+                    </button>
+                  </div>
                 </div>
-              </div>
-            );
-          })
-        ) : (
-          null
-        )}
+              );
+            })
+          : null}
       </div>
       <section class="container max-w-5xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-12 px-4 sm:px-8 lg:px-20 py-16 mt-20">
         <div class="text-center lg:text-left">

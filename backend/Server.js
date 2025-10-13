@@ -25,7 +25,8 @@ const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 app.use("/uploads", express.static(path.join(__dirname, "uploads")));
 // isko mehfooz kro
-app.use(router);
+
+app.use("/api",router);
 
 app.listen(PORT, () => {
   console.log(`Server is running on ${PORT}`);
