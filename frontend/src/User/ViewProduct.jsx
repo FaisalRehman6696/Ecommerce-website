@@ -30,7 +30,7 @@ const ViewProduct = () => {
           {/* Left Side - Image */}
           <div className="w-full h-[50vh]">
             <img
-              src={`http://localhost:3000/${rs.image}`}
+              src={`https://ecommerce-website-2nkk.onrender.com/${rs.image}`}
               alt=""
               className="w-[300px] h-[50vh] object-cover rounded-lg shadow-lg"
             />
