@@ -40,7 +40,7 @@ const Products = ({ card, setCard }) => {
                 >
                   <NavLink to={`/view-product/${_id}`} state={{ card, rs }}>
                     <img
-                      src={`https://ecommerce-website-2nkk.onrender.com/api/${image}`}
+                      src={`https://ecommerce-website-2nkk.onrender.com/${image}`}
                       alt="TAG Heuer"
                       class="rounded-2xl w-full px-1  object-cover mt-1 transform transition-transform hover:scale-105 hover:translate-y-0 duration-300  ease-in-out"
                       style={{ height: "360px" }}
