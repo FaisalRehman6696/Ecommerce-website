@@ -8,7 +8,7 @@ const NewArrival = ({ card, setCard }) => {
   useEffect(() => {
     const getProduct = async () => {
       try {
-        const res = await axios.get(`https://ecommerce-website-2nkk.onrender.com/get-new-product`);
+        const res = await axios.get(`https://ecommerce-website-2nkk.onrender.com/api/get-new-product`);
         setlist(res.data);
         // console.log(res.data);
       } catch (error) {
@@ -40,7 +40,7 @@ const NewArrival = ({ card, setCard }) => {
               >
                 <NavLink to={`/view-product/${_id}`} state={{ card, rs }}>
                   <img
-                    src={`http://localhost:3000/${image}`}
+                    src={`https://ecommerce-website-2nkk.onrender.com/get-category-by/api/${image}`}
                     alt="TAG Heuer"
                     class="rounded-2xl w-full px-1  object-cover mt-1 transform transition-transform hover:scale-105 hover:translate-y-0 duration-300  ease-in-out"
                     style={{ height: "360px" }}

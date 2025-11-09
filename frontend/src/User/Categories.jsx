@@ -43,7 +43,7 @@ const Categories = () => {
                 >
                   <NavLink to={`/view-category/${_id}`} state={{ rs }}>
                     <img
-                      src={`http://localhost:3000/${image}`}
+                      src={`https://ecommerce-website-2nkk.onrender.com/${image}`}
                       alt="Watch 3"
                       className="rounded-xl w-full h-56 object-cover  p-2 group-hover:blur-sm"
                     />

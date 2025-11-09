@@ -25,7 +25,7 @@ const ViewCategory = () => {
     const handleCategoryChange = async () => {
       try {
         const res = await axios.get(
-          `https://ecommerce-website-2nkk.onrender.com/get-category-by/${selectedId}`
+          `https://ecommerce-website-2nkk.onrender.com/get-category-by/api/${selectedId}`
         );
 
         setlist(res.data);
@@ -39,7 +39,7 @@ const ViewCategory = () => {
   useEffect(() => {
     const fetchCategories = async () => {
       try {
-        const res = await axios.get(`http://localhost:3000/get-category`); // Assumes endpoint returns all categories
+        const res = await axios.get(`https://ecommerce-website-2nkk.onrender.com/get-category-by/api/get-category`); // Assumes endpoint returns all categories
         setCategory(res.data);
         console.log(res.data);
       } catch (err) {
@@ -99,7 +99,7 @@ const ViewCategory = () => {
                 >
                   <NavLink to={`/view-product/${_id}`} state={{ card, rs }}>
                     <img
-                      src={`http://localhost:3000/${image}`}
+                      src={`https://ecommerce-website-2nkk.onrender.com/api/${image}`}
                       alt={name}
                       className="rounded-2xl w-full object-cover mt-1 transition-transform hover:scale-105 duration-300"
                       style={{ height: "360px" }}
