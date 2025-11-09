@@ -27,7 +27,7 @@ const Checkout = () => {
       state: shippingInfo.state,
       orderstatus: "pending", // ✅ Add this
     };
-    const res = await axios.post(`http://localhost:3000/save-order`, Data);
+    const res = await axios.post(`https://ecommerce-website-2nkk.onrender.com/api/save-order`, Data);
     alert(res.data.msg);
     setShippingInfo({
       fullname: "",

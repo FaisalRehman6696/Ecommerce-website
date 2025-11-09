@@ -99,7 +99,7 @@ const ViewCategory = () => {
                 >
                   <NavLink to={`/view-product/${_id}`} state={{ card, rs }}>
                     <img
-                      src={`https://ecommerce-website-2nkk.onrender.com/api/${image}`}
+                      src={`https://ecommerce-website-2nkk.onrender.com/${image}`}
                       alt={name}
                       className="rounded-2xl w-full object-cover mt-1 transition-transform hover:scale-105 duration-300"
                       style={{ height: "360px" }}

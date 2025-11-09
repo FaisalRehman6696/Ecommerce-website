@@ -45,7 +45,7 @@ const Navbar = ({ card, setCard }) => {
             style={{ flexGrow: 0.4 }}
           >
             <a href="#home" className="text-orange-300">
-              Home  
+              Home
             </a>
             <a
               href="#categories"
@@ -106,7 +106,7 @@ const Navbar = ({ card, setCard }) => {
                           className="flex items-center justify-between bg-gray-100 p-4 rounded-lg shadow"
                         >
                           <img
-                            src={`${import.meta.env.VITE_BACKEND_URL}/${image}`}
+                            src={`https://ecommerce-website-2nkk.onrender.com/${image}`}
                             alt=""
                             className="w-16 h-16 object-cover rounded"
                           />
