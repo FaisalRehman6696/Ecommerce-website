@@ -24,7 +24,7 @@ const Login = () => {
     const logData = { ...value };
     try {
       const res = await axios.post(
-        `http://localhost:3000/admin-login`,
+        `https://ecommerce-website-2nkk.onrender.com/admin-login`,
         logData
       );
 

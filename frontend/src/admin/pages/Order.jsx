@@ -16,7 +16,7 @@ const Order = () => {
   const [list, setlist] = useState({});
   const getCategory = async () => {
     try {
-      const res = await axios.get(`http://localhost:3000/get-order`);
+      const res = await axios.get(`https://ecommerce-website-2nkk.onrender.com/get-order`);
       setlist(res.data);
     } catch (error) {
       console.log(error);
@@ -109,13 +109,13 @@ const Order = () => {
                   <img
                     src={
                       orderpic?.image
-                        ? `http://localhost:3000/${orderpic.image}`
+                        ? `https://ecommerce-website-2nkk.onrender.com/${orderpic.image}`
                         : ""
                     }
                     alt=""
                     className="h-8 w-8 rounded"
                     onClick={() => {
-                      setshow(`http://localhost:3000/${orderpic.image}`);
+                      setshow(`https://ecommerce-website-2nkk.onrender.com/${orderpic.image}`);
                       setIsModalOpen(true);
                     }}
                   />

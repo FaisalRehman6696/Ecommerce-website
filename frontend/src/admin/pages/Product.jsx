@@ -13,7 +13,7 @@ const Product = () => {
     const getProduct = async () => {
       try {
         const res = await axios.get(
-          "http://localhost:3000/get-product"
+          "https://ecommerce-website-2nkk.onrender.com/get-product"
         );
         setlist(res.data);
         console.log(res.data);
@@ -28,7 +28,7 @@ const Product = () => {
   const DeleteProduct = async (_id) => {
     try {
       const res = await axios.delete(
-        `http://localhost:3000/delete-product/${_id}`
+        `https://ecommerce-website-2nkk.onrender.com/delete-product/${_id}`
       );
 
       alert(res.data.msg);
@@ -58,7 +58,7 @@ const Product = () => {
       }
       console.log(editData);
       const res = await axios.put(
-        `http://localhost:3000/update-product/${editData._id}`,
+        `https://ecommerce-website-2nkk.onrender.com/update-product/${editData._id}`,
         formData
       );
       alert(res.data.msg);
@@ -163,7 +163,7 @@ const Product = () => {
                           <td className="px-6 py-3">{index + 1}</td>
                           <td className="px-6 py-3">
                             <img
-                              src={`http://localhost:3000/${image}`}
+                              src={`https://ecommerce-website-2nkk.onrender.com/${image}`}
                               alt=""
                               className="h-10 w-10 rounded object-cover"
                             />

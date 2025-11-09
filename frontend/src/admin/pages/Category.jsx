@@ -15,7 +15,7 @@ const Category = () => {
   const [list, setlist] = useState({});
   const getCategory = async () => {
     try {
-      const res = await axios.get(`http://localhost:3000/get-category`);
+      const res = await axios.get(`https://ecommerce-website-2nkk.onrender.com/get-category`);
       setlist(res.data);
     } catch (error) {
       console.log(error);
@@ -27,7 +27,7 @@ const Category = () => {
 
   const DeleteCategory = async (_id) => {
     try {
-      const res = await axios.delete(`http://localhost:3000/delete-category/${_id}`);
+      const res = await axios.delete(`https://ecommerce-website-2nkk.onrender.com/delete-category/${_id}`);
       alert(res.data.msg);
      getCategory()
     } catch (error) {
@@ -58,7 +58,7 @@ const handleUpdateCategory = async () => {
     if (editData.newImage) {
       formData.append("image", editData.newImage);
     }
-    const res = await axios.put(`http://localhost:3000/update-category/${editData._id}`, formData);
+    const res = await axios.put(`https://ecommerce-website-2nkk.onrender.com/update-category/${editData._id}`, formData);
     alert(res.data.msg || "Category updated successfully!");
     setEditModalOpen(false);
     getCategory(); // refresh list
@@ -143,11 +143,11 @@ const handleImageChange = (e) => {
                         <td className="px-4 py-2">{name}</td>
                         <td className="px-4 py-2" style={{ cursor: "pointer" }}>
                           <img
-                            src={`http://localhost:3000/${image}`}
+                            src={`https://ecommerce-website-2nkk.onrender.com/${image}`}
                             alt=""
                             className="h-8 w-8 rounded"
                             onClick={() => {
-                              setshow(`http://localhost:3000/${image}`);
+                              setshow(`https://ecommerce-website-2nkk.onrender.com/${image}`);
                               setIsModalOpen(true);
                             }}
                           />
@@ -249,7 +249,7 @@ const handleImageChange = (e) => {
             Image (preview only)
           </label>
           <img
-            src={`http://localhost:3000/${editData.image}`}
+            src={`https://ecommerce-website-2nkk.onrender.com/${editData.image}`}
             alt="Category"
             className="h-24 w-24 object-cover rounded-lg border"
           />
