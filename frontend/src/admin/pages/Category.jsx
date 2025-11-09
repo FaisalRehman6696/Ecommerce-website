@@ -15,7 +15,9 @@ const Category = () => {
   const [list, setlist] = useState({});
   const getCategory = async () => {
     try {
-      const res = await axios.get(`https://ecommerce-website-2nkk.onrender.com/get-category`);
+      const res = await axios.get(
+        `https://ecommerce-website-2nkk.onrender.com/get-category`
+      );
       setlist(res.data);
     } catch (error) {
       console.log(error);
@@ -27,50 +29,58 @@ const Category = () => {
 
   const DeleteCategory = async (_id) => {
     try {
-      const res = await axios.delete(`https://ecommerce-website-2nkk.onrender.com/delete-category/${_id}`);
+      const res = await axios.delete(
+        `https://ecommerce-website-2nkk.onrender.com/delete-category/${_id}`
+      );
       alert(res.data.msg);
-     getCategory()
+      getCategory();
     } catch (error) {
       console.log(error);
     }
   };
   // thisi is for edit data
   const [editModalOpen, setEditModalOpen] = useState(false);
-const [editData, setEditData] = useState({ name: "", description: "", image:""});
+  const [editData, setEditData] = useState({
+    name: "",
+    description: "",
+    image: "",
+  });
 
-const handleEdit = (rs) => {
-  setEditData(rs);
-  setEditModalOpen(true);
-};
+  const handleEdit = (rs) => {
+    setEditData(rs);
+    setEditModalOpen(true);
+  };
 
-const handleEditChange = (e) => {
-  const { name, value } = e.target;
-  setEditData({ ...editData, [name]: value });
-};
+  const handleEditChange = (e) => {
+    const { name, value } = e.target;
+    setEditData({ ...editData, [name]: value });
+  };
 
-const handleUpdateCategory = async () => {
-  try {
-    const formData = new FormData();
-    formData.append("name", editData.name);
-    formData.append("description", editData.description);
-    
-    // Only append new image if selected
-    if (editData.newImage) {
-      formData.append("image", editData.newImage);
+  const handleUpdateCategory = async () => {
+    try {
+      const formData = new FormData();
+      formData.append("name", editData.name);
+      formData.append("description", editData.description);
+
+      // Only append new image if selected
+      if (editData.newImage) {
+        formData.append("image", editData.newImage);
+      }
+      const res = await axios.put(
+        `https://ecommerce-website-2nkk.onrender.com/update-category/${editData._id}`,
+        formData
+      );
+      alert(res.data.msg || "Category updated successfully!");
+      setEditModalOpen(false);
+      getCategory(); // refresh list
+    } catch (error) {
+      console.log(error);
     }
-    const res = await axios.put(`https://ecommerce-website-2nkk.onrender.com/update-category/${editData._id}`, formData);
-    alert(res.data.msg || "Category updated successfully!");
-    setEditModalOpen(false);
-    getCategory(); // refresh list
-  } catch (error) {
-    console.log(error);
-  }
-};
-const handleImageChange = (e) => {
-  const file = e.target.files[0];
-  setEditData({ ...editData, newImage: file });
-};
-
+  };
+  const handleImageChange = (e) => {
+    const file = e.target.files[0];
+    setEditData({ ...editData, newImage: file });
+  };
 
   return (
     <>
@@ -136,7 +146,7 @@ const handleImageChange = (e) => {
                   list.map((rs, index) => {
                     if (!rs) return null;
                     const { _id, name, image, description } = rs;
-                 
+
                     return (
                       <tr key={_id} className="border-t">
                         <td className="px-4 py-2">{index + 1}</td>
@@ -147,7 +157,9 @@ const handleImageChange = (e) => {
                             alt=""
                             className="h-8 w-8 rounded"
                             onClick={() => {
-                              setshow(`https://ecommerce-website-2nkk.onrender.com/${image}`);
+                              setshow(
+                                `https://ecommerce-website-2nkk.onrender.com/${image}`
+                              );
                               setIsModalOpen(true);
                             }}
                           />
@@ -155,11 +167,14 @@ const handleImageChange = (e) => {
                         </td>
                         <td className="px-4 py-2">{description}</td>
                         <td className="px-4 py-2 space-x-2">
-                          <button onClick={() => handleEdit(rs)} className="bg-yellow-400 text-white px-3 py-1 rounded hover:bg-yellow-500">
+                          <button
+                            onClick={() => handleEdit(rs)}
+                            className="bg-yellow-400 text-white px-3 py-1 rounded hover:bg-yellow-500"
+                          >
                             Edit
                           </button>
                           <button
-                            onClick={()=>DeleteCategory(_id)}
+                            onClick={() => DeleteCategory(_id)}
                             className="bg-red-500 text-white px-3 py-1 rounded hover:bg-red-600"
                           >
                             Delete
@@ -178,110 +193,106 @@ const handleImageChange = (e) => {
               </tbody>
             </table>
           </div>
-         {isModalOpen && (
-  <div className="fixed inset-0 z-50 flex items-center justify-center bg-black bg-opacity-50">
-    <div className="bg-white rounded-xl shadow-xl p-6 w-full max-w-xl mx-4 relative transform transition-all duration-300 ease-in-out">
-      <button
-        className="absolute top-3 right-3 text-gray-600 hover:text-black text-2xl"
-        onClick={() => setIsModalOpen(false)}
-      >
-        &times;
-      </button>
-      <h2 className="text-2xl font-semibold mb-4 text-center text-blue-700">
-        Selected Image
-      </h2>
-      <div className="max-h-[80vh] overflow-auto">
-        <img
-          src={show}
-          alt="Selected"
-          className="w-full h-auto rounded-md shadow-md"
-        />
-      </div>
-    </div>
-  </div>
-)}
-
+          {isModalOpen && (
+            <div className="fixed inset-0 z-50 flex items-center justify-center bg-black bg-opacity-50">
+              <div className="bg-white rounded-xl shadow-xl p-6 w-full max-w-xl mx-4 relative transform transition-all duration-300 ease-in-out">
+                <button
+                  className="absolute top-3 right-3 text-gray-600 hover:text-black text-2xl"
+                  onClick={() => setIsModalOpen(false)}
+                >
+                  &times;
+                </button>
+                <h2 className="text-2xl font-semibold mb-4 text-center text-blue-700">
+                  Selected Image
+                </h2>
+                <div className="max-h-[80vh] overflow-auto">
+                  <img
+                    src={show}
+                    alt="Selected"
+                    className="w-full h-auto rounded-md shadow-md"
+                  />
+                </div>
+              </div>
+            </div>
+          )}
 
           {editModalOpen && (
-  <div className="fixed inset-0 z-50 flex items-center justify-center bg-black bg-opacity-50">
-    <div className="bg-white rounded-xl shadow-2xl p-6 w-full max-w-lg relative">
-      <button
-        className="absolute top-3 right-3 text-gray-600 hover:text-black text-2xl"
-        onClick={() => setEditModalOpen(false)}
-      >
-        &times;
-      </button>
-      <h2 className="text-2xl font-bold mb-6 text-center text-blue-700">
-        Edit Category
-      </h2>
+            <div className="fixed inset-0 z-50 flex items-center justify-center bg-black bg-opacity-50">
+              <div className="bg-white rounded-xl shadow-2xl p-6 w-full max-w-lg relative">
+                <button
+                  className="absolute top-3 right-3 text-gray-600 hover:text-black text-2xl"
+                  onClick={() => setEditModalOpen(false)}
+                >
+                  &times;
+                </button>
+                <h2 className="text-2xl font-bold mb-6 text-center text-blue-700">
+                  Edit Category
+                </h2>
 
-      <div className="space-y-4">
-        <div>
-          <label className="block mb-1 text-sm font-semibold text-gray-700">
-            Name
-          </label>
-          <input
-            type="text"
-            name="name"
-            value={editData.name}
-            onChange={handleEditChange}
-            className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring focus:border-blue-500"
-            placeholder="Category Name"
-          />
-        </div>
+                <div className="space-y-4">
+                  <div>
+                    <label className="block mb-1 text-sm font-semibold text-gray-700">
+                      Name
+                    </label>
+                    <input
+                      type="text"
+                      name="name"
+                      value={editData.name}
+                      onChange={handleEditChange}
+                      className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring focus:border-blue-500"
+                      placeholder="Category Name"
+                    />
+                  </div>
 
-        <div>
-          <label className="block mb-1 text-sm font-semibold text-gray-700">
-            Description
-          </label>
-          <textarea
-            name="description"
-            value={editData.description}
-            onChange={handleEditChange}
-            className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring focus:border-blue-500"
-            placeholder="Category Description"
-            rows={3}
-          ></textarea>
-        </div>
+                  <div>
+                    <label className="block mb-1 text-sm font-semibold text-gray-700">
+                      Description
+                    </label>
+                    <textarea
+                      name="description"
+                      value={editData.description}
+                      onChange={handleEditChange}
+                      className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring focus:border-blue-500"
+                      placeholder="Category Description"
+                      rows={3}
+                    ></textarea>
+                  </div>
 
-        <div>
-          <label className="block mb-1 text-sm font-semibold text-gray-700">
-            Image (preview only)
-          </label>
-          <img
-            src={`https://ecommerce-website-2nkk.onrender.com/${editData.image}`}
-            alt="Category"
-            className="h-24 w-24 object-cover rounded-lg border"
-          />
-        </div>
+                  <div>
+                    <label className="block mb-1 text-sm font-semibold text-gray-700">
+                      Image (preview only)
+                    </label>
+                    <img
+                      src={`https://ecommerce-website-2nkk.onrender.com/${editData.image}`}
+                      alt="Category"
+                      className="h-24 w-24 object-cover rounded-lg border"
+                    />
+                  </div>
 
-        {/* Optional: File input for new image (not handled in update yet) */}
-         
-        <div>
-          <label className="block mb-1 text-sm font-semibold text-gray-700">
-            Upload New Image
-          </label>
-          <input
-            type="file"
-            name="image"
-            onChange={(e) => handleImageChange(e)}
-            className="w-full border border-gray-300 rounded px-3 py-2"
-          />
-        </div>
-        
+                  {/* Optional: File input for new image (not handled in update yet) */}
 
-        <button
-          onClick={handleUpdateCategory}
-          className="w-full bg-blue-600 text-white py-2 rounded-lg hover:bg-blue-700 font-semibold transition duration-200"
-        >
-          Update Category
-        </button>
-      </div>
-    </div>
-  </div>
-)}
+                  <div>
+                    <label className="block mb-1 text-sm font-semibold text-gray-700">
+                      Upload New Image
+                    </label>
+                    <input
+                      type="file"
+                      name="image"
+                      onChange={(e) => handleImageChange(e)}
+                      className="w-full border border-gray-300 rounded px-3 py-2"
+                    />
+                  </div>
 
-
+                  <button
+                    onClick={handleUpdateCategory}
+                    className="w-full bg-blue-600 text-white py-2 rounded-lg hover:bg-blue-700 font-semibold transition duration-200"
+                  >
+                    Update Category
+                  </button>
+                </div>
+              </div>
+            </div>
+          )}
         </div>
       </main>
     </>

@@ -8,7 +8,7 @@ const Categories = () => {
     const getProduct = async () => {
       try {
         const res = await axios.get(
-          `https://ecommerce-website-2nkk.onrender.com/get-category`
+          `https://ecommerce-website-2nkk.onrender.com/api/get-category`
         );
         console.log(res.data);
         setlist(res.data);
