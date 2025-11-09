@@ -6,15 +6,16 @@ const Categories = () => {
   const [list, setlist] = useState({});
   useEffect(() => {
     const getProduct = async () => {
-      try {                          
-        const res = await axios.get(`https://ecommerce-website-2nkk.onrender.com/get-category`);
+      try {
+        const res = await axios.get(
+          `https://ecommerce-website-2nkk.onrender.com/get-category`
+        );
+        console.log(res.data);
         setlist(res.data);
-        // console.log(res.data);
       } catch (error) {
         console.log(error);
       }
     };
-
     getProduct();
   }, []);
   return (

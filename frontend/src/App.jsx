@@ -42,9 +42,7 @@ const AppWrapper = () => {
       <Routes>
         <Route path="/" element={<Eccommerce />} />
         <Route path="/admin-login" element={<Login />} />
-
         <Route path="/admindashboard" element={<AdminDashboard />} />
-
         <Route path="/products" element={<Products />} />
         <Route path="/navbar" element={<Navbar />} />
         <Route path="/category" element={<Category />} />
